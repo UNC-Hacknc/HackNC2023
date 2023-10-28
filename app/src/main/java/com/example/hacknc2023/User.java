@@ -4,18 +4,18 @@ public class User {
 
     public int id;
     public String username;
-    public String email;
+    public String interests;
 
     public User() {
         this.username = "John Doe";
         this.id = 111111111;
-        this.email = "ghejrkn@gmail.com";
+        this.interests = "volleyball, indian cuisine";
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
     public User(String username, String email, int id) {
         this.username = username;
-        this.email = email;
+        this.interests = email;
         this.id = id;
     }
 }
