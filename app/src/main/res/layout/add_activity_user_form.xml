@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="Select School"></TextView>
+
+    <Spinner
+        android:id="@+id/schoolSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select School" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="Choose between a meal or playing sports!"></TextView>
+
+    <Spinner
+        android:id="@+id/mealSportsSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select Meal/Sport" />
+
+    <TextView
+        android:id="@+id/cuisinePrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
+        android:text="Select the cuisine you're interested in"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"></TextView>
+
+    <Spinner
+        android:id="@+id/cuisineSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select Cuisine"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/sportsPrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
+        android:text="Select the sport you're interested in"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"></TextView>
+
+    <Spinner
+        android:id="@+id/sportSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select Sport"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:text="State your preference for gender of the group"></TextView>
+
+    <Spinner
+        android:id="@+id/genderSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select Gender" />
+
+</LinearLayout>

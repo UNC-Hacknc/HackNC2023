@@ -3,6 +3,7 @@ package com.example.hacknc2023;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,5 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDefaultUser() {
         currUserId = 000000000;
+    }
+
+    public void beginForm(View view) {
+        AddActivity dialogFragment = new AddActivity();
+        dialogFragment.show(getSupportFragmentManager(), "UserFormDialog");
     }
 }

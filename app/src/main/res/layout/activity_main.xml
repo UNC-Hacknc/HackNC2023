@@ -71,7 +71,8 @@
             android:text="Add activity"
             android:textSize="10dp"
             android:layout_weight="1"
-            android:layout_margin="8dp" />
+            android:layout_margin="8dp"
+            android:onClick="beginForm"/>
 
         <Button
             android:layout_width="wrap_content"
