@@ -1,5 +1,9 @@
 package com.example.hacknc2023;
 
+
+public class AddActivity {
+
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
