@@ -11,6 +11,15 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
         android:textSize="8pt"
+        android:text="Date: "></TextView>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="8pt"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:text="Select School"></TextView>
@@ -30,7 +39,7 @@
         android:textSize="8pt"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:text="Choose between a meal or playing sports!"></TextView>
+        android:text="Activity Type"></TextView>
 
     <Spinner
         android:id="@+id/mealSportsSpinner"
@@ -87,7 +96,7 @@
         android:textSize="8pt"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:text="State your preference for gender of the group"></TextView>
+        android:text="Gender Preference"></TextView>
 
     <Spinner
         android:id="@+id/genderSpinner"

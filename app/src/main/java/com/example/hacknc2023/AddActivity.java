@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class AddActivity extends DialogFragment {
@@ -22,6 +27,13 @@ public class AddActivity extends DialogFragment {
 
         final View layout = getLayoutInflater().inflate(R.layout.add_activity_user_form, null);
         builder.setView(layout);
+
+        TextView date = layout.findViewById(R.id.date);
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String formattedDate = dateFormat.format(currentDate);
+        date.setText(formattedDate);
+
 
         Spinner schoolSpinner = layout.findViewById(R.id.schoolSpinner);
         schoolSpinner.setPrompt("Select School");
