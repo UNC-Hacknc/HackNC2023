@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createNewUser() {
+        name = "John Doe";
+        interests = "soccer, food";
         HandleDatabase handDb = HandleDatabase.getInstance();
         currUserId = handDb.createNewUser();
     }

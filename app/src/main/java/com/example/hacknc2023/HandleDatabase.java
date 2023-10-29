@@ -17,8 +17,9 @@ import java.util.ArrayList;
 public class HandleDatabase {
 
     private static DatabaseReference mDatabase = null;
-
     private static HandleDatabase databaseClass = null;
+    private boolean usersExist = false;
+    private boolean activitiesExist = false;
 
     // Static method
     // Static method to create instance of Singleton class
@@ -57,6 +58,7 @@ public class HandleDatabase {
 
     public int createNewUser() {
         final int[] userId = {000000000};
+
         mDatabase.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -95,7 +97,8 @@ public class HandleDatabase {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
                 else {
-                    returnVal[0] = String.valueOf(task.getResult().getValue());
+                    Log.i("TypeClass", (task.getResult().getValue() == null)+"");
+//                    returnVal[0] =  String.valueOf(task.getResult().getValue());
                 }
             }
         });
