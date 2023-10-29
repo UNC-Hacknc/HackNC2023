@@ -1,9 +1,5 @@
 package com.example.hacknc2023;
 
-
-public class AddActivity {
-
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -23,6 +19,9 @@ import java.util.Locale;
 
 
 public class AddActivity extends DialogFragment {
+
+    HandleDatabase handDb = HandleDatabase.getInstance();
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -100,7 +99,16 @@ public class AddActivity extends DialogFragment {
 
         builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // Handle the form submission here
+                String selectedItem = mealSportsSpinner.getSelectedItem().toString();
+                if (selectedItem.equals("Meal")) {
+                    String cuisine = cuisineSpinner.getSelectedItem().toString();
+                    handDb.findOrCreateActivities(MainActivity.currUserId, cuisine);
+                } else if (selectedItem.equals("Sports")) {
+                    String sport = sportSpinner.getSelectedItem().toString();
+                    handDb.findOrCreateActivities(MainActivity.currUserId, sport);
+                } else {
+
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
