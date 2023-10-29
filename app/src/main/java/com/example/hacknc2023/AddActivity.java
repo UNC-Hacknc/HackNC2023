@@ -15,6 +15,8 @@ import androidx.fragment.app.DialogFragment;
 
 
 public class AddActivity extends DialogFragment {
+
+    HandleDatabase myDb = HandleDatabase.getInstance();
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -92,6 +94,12 @@ public class AddActivity extends DialogFragment {
         builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // Handle the form submission here
+                String selectedItem = mealSportsSpinner.getSelectedItem().toString();
+                if (selectedItem.equals("Meal")) {
+                    myDb.findOrCreateActivities(MainActivity.currUserId, "Meal");
+                }else if (selectedItem.equals("Sports")){
+                    myDb.findOrCreateActivities(MainActivity.currUserId, "Sports");
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
