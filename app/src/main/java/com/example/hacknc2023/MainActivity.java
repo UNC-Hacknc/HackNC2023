@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private String searchLocation(String keyword) {
+    public String searchLocation(String keyword) {
 
         Thread thread = new Thread(new Runnable() {
 

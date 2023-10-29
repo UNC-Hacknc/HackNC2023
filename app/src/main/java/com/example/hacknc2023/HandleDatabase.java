@@ -12,11 +12,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
 
 public class HandleDatabase {
 
@@ -87,14 +84,15 @@ public class HandleDatabase {
                 // Failed, how to handle?
                 //TODO Add to this if onCancelled ever happens and is an issue
             }
-
         });
     }
 
     private void createNewActivity(int currUserId, String interest) {
+        GoogleApiPlaces googleApiPlaces = new GoogleApiPlaces();
+        String location = googleApiPlaces.searchLocation(interest);
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(currUserId);
-        mDatabase.child("activities").push().setValue(new Activity(arrayList, interest, new Date(), "somewhere"));
+        mDatabase.child("activities").push().setValue(new Activity(arrayList, interest, new Date(), location));
     }
 
     private void updateActivity(int currUserId, Activity activity, String key) {
