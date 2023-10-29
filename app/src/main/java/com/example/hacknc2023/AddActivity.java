@@ -96,9 +96,10 @@ public class AddActivity extends DialogFragment {
                 // Handle the form submission here
                 String selectedItem = mealSportsSpinner.getSelectedItem().toString();
                 if (selectedItem.equals("Meal")) {
-                    myDb.findOrCreateActivities(MainActivity.currUserId, "Meal");
-                }else if (selectedItem.equals("Sports")){
-                    myDb.findOrCreateActivities(MainActivity.currUserId, "Sports");
+
+                    myDb.findOrCreateActivities(MainActivity.currUserId, cuisineSpinner.getSelectedItem().toString());
+                } else if (selectedItem.equals("Sports")){
+                    myDb.findOrCreateActivities(MainActivity.currUserId, sportSpinner.getSelectedItem().toString());
                 }
             }
         });
