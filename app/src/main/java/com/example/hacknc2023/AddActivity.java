@@ -106,6 +106,7 @@ public class AddActivity extends DialogFragment {
                 } else if (selectedItem.equals("Sports")){
                     myDb.findOrCreateActivities(MainActivity.currUserId, sportSpinner.getSelectedItem().toString(), activity);
                 }
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

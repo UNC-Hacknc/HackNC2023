@@ -15,6 +15,7 @@ public class Activity {
         int id = 000000000;
         groupIds = new ArrayList<>();
         interest = "indian cuisine";
+        Date date = new Date();
         time = new Date();
         location = "00111";
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
