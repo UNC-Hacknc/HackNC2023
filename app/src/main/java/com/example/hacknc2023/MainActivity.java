@@ -1,39 +1,16 @@
 package com.example.hacknc2023;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.LocationBias;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.model.PlaceLikelihood;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.model.PlaceLikelihood;
-import com.google.android.libraries.places.api.model.RectangularBounds;
-import com.google.android.libraries.places.api.model.TypeFilter;
-import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
-import com.google.android.libraries.places.api.net.PlacesClient;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     public static int currUserId;
     public static String name;
     public static String interests;
-    private PlacesClient placesClient;
-    private String meetingLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         createNewUser();
         Log.i("firebaseUser", HandleDatabase.getInstance().getUser(currUserId));
-        Places.initialize(getApplicationContext(), "AIzaSyAjpMcfOWq14zsy-2CxTEnLWhxOPCvbq2M");
-        placesClient = Places.createClient(this);
-
     }
 
 
@@ -86,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return meetingLocation;
     }
+  
     private void createNewUser() {
-        name = "John Doe";
-        interests = "soccer, food";
         HandleDatabase handDb = HandleDatabase.getInstance();
-        handDb.createNewUser();
+        currUserId = handDb.createNewUser();
     }
 
     public void beginForm(View view) {

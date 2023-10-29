@@ -118,19 +118,59 @@
                     android:textSize="18dp"
                     />
             </LinearLayout>
-
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/newActivityLayout"
+            android:layout_height="80dp"
+            android:layout_width="400dp"
+            android:background="@drawable/bordered_rounded_background_home"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/volleyball"/>
+
+            <LinearLayout
+                android:layout_height="80dp"
+                android:layout_width="250dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/activityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Volleyball"
+                    android:textStyle="bold"
+                    android:textSize="28dp"
+                    />
+                <TextView
+                    android:id="@+id/locationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fetzer Gym, 26th OCT, 18:00"
+                    android:textSize="18dp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="15dp"
             android:text="Upcoming Events"
             android:textColor="#404763"
             android:textStyle="bold"
-            android:textSize="34dp"
+            android:textSize="25dp"
             />
         <LinearLayout
-            android:layout_height="150dp"
+            android:layout_height="80dp"
             android:layout_width="400dp"
             android:background="@drawable/bordered_rounded_background_home"
             android:layout_gravity="center_horizontal"

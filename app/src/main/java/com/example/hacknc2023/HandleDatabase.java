@@ -21,8 +21,12 @@ public class HandleDatabase {
     private static HandleDatabase databaseClass = null;
     private boolean usersExist = false;
     private boolean activitiesExist = false;
+    private String meetingLocation;
+
+
 
     int maxGroupSize = 4;
+
 
     // Static method
     // Static method to create instance of Singleton class
@@ -76,6 +80,7 @@ public class HandleDatabase {
                 } else {
                     // Don't exist! Create First Activity as well as the database.
                     createNewActivity(currUserId, interest);
+
                 }
             }
 
