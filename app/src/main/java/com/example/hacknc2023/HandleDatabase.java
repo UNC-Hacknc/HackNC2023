@@ -12,8 +12,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 
 public class HandleDatabase {
 
@@ -64,8 +67,10 @@ public class HandleDatabase {
                     // Exist! Do whatever.
                     for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                         // TODO: handle the post
-                        Activity activity = (Activity) postSnapshot.getValue();
+                        Log.i("ReturnedObject", String.valueOf(postSnapshot.getValue()));
+                        Activity activity = postSnapshot.getValue(Activity.class);
                         if(activity.interest.equals(interest) && activity.groupIds.size() < maxGroupSize){
+                            Log.i("FoundPossibleAct", "found");
                             updateActivity(currUserId, activity, postSnapshot.getKey());
                             return;
                         }
@@ -94,7 +99,7 @@ public class HandleDatabase {
 
     private void updateActivity(int currUserId, Activity activity, String key) {
         activity.groupIds.add(currUserId);
-        mDatabase.child("users").child(key).setValue(activity);
+        mDatabase.child("activities").child(key).setValue(activity);
     }
 
     public int createNewUser() {
