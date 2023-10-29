@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void createNewUser() {
         HandleDatabase handDb = HandleDatabase.getInstance();
+        name = "John Doe";
+        interests = "food, sports";
         currUserId = handDb.createNewUser();
     }
 
