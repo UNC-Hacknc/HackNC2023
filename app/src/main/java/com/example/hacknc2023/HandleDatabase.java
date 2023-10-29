@@ -1,8 +1,10 @@
 package com.example.hacknc2023;
 
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -59,7 +61,7 @@ public class HandleDatabase {
         return activities;
     }
 
-    public void findOrCreateActivities(int currUserId, String interest) {
+    public void findOrCreateActivities(int currUserId, String interest, MainActivity appCompatActivity) {
         mDatabase.child("activities").addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -72,14 +74,14 @@ public class HandleDatabase {
                         Activity activity = postSnapshot.getValue(Activity.class);
                         if(activity.interest.equals(interest) && activity.groupIds.size() < maxGroupSize){
                             Log.i("FoundPossibleAct", "found");
-                            updateActivity(currUserId, activity, postSnapshot.getKey());
+                            updateActivity(currUserId, activity, postSnapshot.getKey(), appCompatActivity);
                             return;
                         }
                     }
-                    createNewActivity(currUserId, interest);
+                    createNewActivity(currUserId, interest, appCompatActivity);
                 } else {
                     // Don't exist! Create First Activity as well as the database.
-                    createNewActivity(currUserId, interest);
+                    createNewActivity(currUserId, interest, appCompatActivity);
 
                 }
             }
@@ -92,17 +94,23 @@ public class HandleDatabase {
         });
     }
 
-    private void createNewActivity(int currUserId, String interest) {
+    private void createNewActivity(int currUserId, String interest, MainActivity activity) {
         GoogleApiPlaces googleApiPlaces = new GoogleApiPlaces();
         String location = googleApiPlaces.searchLocation(interest);
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(currUserId);
+        activity.updateActivity(location, interest);
+
+
         mDatabase.child("activities").push().setValue(new Activity(arrayList, interest, new Date(), location));
     }
 
-    private void updateActivity(int currUserId, Activity activity, String key) {
+    private void updateActivity(int currUserId, Activity activity, String key, MainActivity mainActivity) {
         activity.groupIds.add(currUserId);
         mDatabase.child("activities").child(key).setValue(activity);
+        String interest = activity.interest;
+        String location = activity.location;
+        mainActivity.updateActivity(location, interest);
     }
 
     public int createNewUser() {
