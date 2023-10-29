@@ -1,26 +1,19 @@
 package com.example.hacknc2023;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.libraries.places.api.net.PlacesClient;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
 
-    public static int currUserId;
-    public static String name;
-    public static String interests;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+public class GoogleApiPlaces {
 
-        createNewUser();
-        Log.i("firebaseUser", HandleDatabase.getInstance().getUser(currUserId));
-    }
-
+    private String meetingLocation;
 
     public String searchLocation(String keyword) {
 
@@ -59,15 +52,5 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return meetingLocation;
-    }
-  
-    private void createNewUser() {
-        HandleDatabase handDb = HandleDatabase.getInstance();
-        currUserId = handDb.createNewUser();
-    }
-
-    public void beginForm(View view) {
-        AddActivity dialogFragment = new AddActivity();
-        dialogFragment.show(getSupportFragmentManager(), "UserFormDialog");
     }
 }
