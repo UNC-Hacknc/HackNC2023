@@ -70,6 +70,8 @@ public class HandleDatabase {
                     mDatabase.child("users").child(userId[0] + "").setValue(new User(
                             userId[0], MainActivity.name, MainActivity.interests
                     ));
+                    MainActivity.currUserId = userId[0];
+                    Log.i("firebaseUser", HandleDatabase.getInstance().getUser(userId[0]));
                 } else {
                     // Don't exist! Create First User as well as the database.
                     mDatabase.child("users").child("000000000").setValue(new User(
@@ -97,8 +99,7 @@ public class HandleDatabase {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
                 else {
-                    Log.i("TypeClass", (task.getResult().getValue() == null)+"");
-//                    returnVal[0] =  String.valueOf(task.getResult().getValue());
+                    Log.i("TypeClass", String.valueOf(task.getResult().getValue()));
                 }
             }
         });

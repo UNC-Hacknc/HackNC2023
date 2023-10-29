@@ -18,14 +18,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         createNewUser();
-        Log.i("firebaseUser", HandleDatabase.getInstance().getUser(currUserId));
     }
 
     private void createNewUser() {
         name = "John Doe";
         interests = "soccer, food";
         HandleDatabase handDb = HandleDatabase.getInstance();
-        currUserId = handDb.createNewUser();
+        handDb.createNewUser();
     }
 
     public void beginForm(View view) {
