@@ -87,8 +87,10 @@ public class MainActivity extends AppCompatActivity {
         return meetingLocation;
     }
     private void createNewUser() {
+        name = "John Doe";
+        interests = "soccer, food";
         HandleDatabase handDb = HandleDatabase.getInstance();
-        currUserId = handDb.createNewUser();
+        handDb.createNewUser();
     }
 
     public void beginForm(View view) {

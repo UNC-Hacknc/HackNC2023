@@ -20,7 +20,7 @@ public class Activity {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public Activity(int id, ArrayList<Integer> groupIds, String interest, Date time, String location){
+    public Activity(ArrayList<Integer> groupIds, String interest, Date time, String location){
         this.id = id;
         this.groupIds = groupIds;
         this.interest = interest;

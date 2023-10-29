@@ -13,12 +13,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HandleDatabase {
 
     private static DatabaseReference mDatabase = null;
-
     private static HandleDatabase databaseClass = null;
+    private boolean usersExist = false;
+    private boolean activitiesExist = false;
+
+    int maxGroupSize = 4;
 
     // Static method
     // Static method to create instance of Singleton class
@@ -52,11 +56,50 @@ public class HandleDatabase {
     }
 
     public void findOrCreateActivities(int currUserId, String interest) {
+        mDatabase.child("activities").addListenerForSingleValueEvent(new ValueEventListener() {
 
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    // Exist! Do whatever.
+                    for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                        // TODO: handle the post
+                        Activity activity = (Activity) postSnapshot.getValue();
+                        if(activity.interest.equals(interest) && activity.groupIds.size() < maxGroupSize){
+                            updateActivity(currUserId, activity, postSnapshot.getKey());
+                            return;
+                        }
+                    }
+                    createNewActivity(currUserId, interest);
+                } else {
+                    // Don't exist! Create First Activity as well as the database.
+                    createNewActivity(currUserId, interest);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed, how to handle?
+                //TODO Add to this if onCancelled ever happens and is an issue
+            }
+
+        });
+    }
+
+    private void createNewActivity(int currUserId, String interest) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(currUserId);
+        mDatabase.child("activities").push().setValue(new Activity(arrayList, interest, new Date(), "somewhere"));
+    }
+
+    private void updateActivity(int currUserId, Activity activity, String key) {
+        activity.groupIds.add(currUserId);
+        mDatabase.child("users").child(key).setValue(activity);
     }
 
     public int createNewUser() {
         final int[] userId = {000000000};
+
         mDatabase.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
@@ -68,6 +111,8 @@ public class HandleDatabase {
                     mDatabase.child("users").child(userId[0] + "").setValue(new User(
                             userId[0], MainActivity.name, MainActivity.interests
                     ));
+                    MainActivity.currUserId = userId[0];
+                    Log.i("firebaseUser", HandleDatabase.getInstance().getUser(userId[0]));
                 } else {
                     // Don't exist! Create First User as well as the database.
                     mDatabase.child("users").child("000000000").setValue(new User(
@@ -95,7 +140,7 @@ public class HandleDatabase {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
                 else {
-                    returnVal[0] = String.valueOf(task.getResult().getValue());
+                    Log.i("TypeClass", String.valueOf(task.getResult().getValue()));
                 }
             }
         });
