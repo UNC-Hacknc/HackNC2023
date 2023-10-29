@@ -1,63 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Date"
+                android:textColor="#000000"
+                android:textSize="8pt"
+                android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="28 Oct 2023"
+                android:textColor="#000000"
+                android:textSize="8pt"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Time"
+            android:textColor="#000000"
+            android:textSize="8pt"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/timeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Select Time"
+            android:background="@drawable/bordered_rounded_background"/>
+
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
-        android:textSize="8pt"
-        android:text="Date: "></TextView>
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
+        android:text="Select School"
+        android:textColor="#000000"
         android:textSize="8pt"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:text="Select School"></TextView>
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/schoolSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Select School" />
+        android:hint="Select School"
+        android:background="@drawable/bordered_rounded_background"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Choose between a meal or playing sports!"
+        android:textColor="#000000"
         android:textSize="8pt"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:text="Activity Type"></TextView>
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/mealSportsSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Select Meal/Sport" />
+        android:padding="12dp"
+        android:hint="Select Meal/Sport"
+        android:background="@drawable/bordered_rounded_background"/>
 
     <TextView
         android:id="@+id/cuisinePrompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
-        android:textSize="8pt"
+        android:layout_marginTop="16dp"
         android:text="Select the cuisine you're interested in"
+        android:textColor="#000000"
+        android:textSize="8pt"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
         android:visibility="gone"></TextView>
 
     <Spinner
@@ -65,19 +105,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:padding="12dp"
         android:hint="Select Cuisine"
+        android:background="@drawable/bordered_rounded_background"
         android:visibility="gone" />
 
     <TextView
         android:id="@+id/sportsPrompt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
-        android:textSize="8pt"
+        android:layout_marginTop="16dp"
         android:text="Select the sport you're interested in"
+        android:textColor="#000000"
+        android:textSize="8pt"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
         android:visibility="gone"></TextView>
 
     <Spinner
@@ -85,24 +127,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:padding="12dp"
         android:hint="Select Sport"
+        android:background="@drawable/bordered_rounded_background"
         android:visibility="gone" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="State your preference for gender of the group"
+        android:textColor="#000000"
         android:textSize="8pt"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:text="Gender Preference"></TextView>
+        android:textStyle="bold"></TextView>
 
     <Spinner
         android:id="@+id/genderSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Select Gender" />
+        android:padding="12dp"
+        android:hint="Select Gender"
+        android:background="@drawable/bordered_rounded_background"/>
 
 </LinearLayout>

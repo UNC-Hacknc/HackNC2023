@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">HackNC2023</string>
+
+    <string-array name="time">
+        <item>5PM</item>
+        <item>6PM</item>
+        <item>7PM</item>
+        <item>8PM</item>
+        <item>9PM</item>
+        <item>10PM</item>
+        <item>11PM</item>
+    </string-array>
+]
+
     <string-array name="schools">
         <item>UNC-CH</item>
     </string-array>
