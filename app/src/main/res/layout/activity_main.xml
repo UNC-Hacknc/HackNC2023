@@ -4,84 +4,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0C6BC"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text="Hi John Doe!"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Next Activities"
-        android:textColor="#FF0000"
-        android:padding="8dp"
-        android:textSize="20sp"
-        android:background="#CCCCCC" />
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <ListView
-        android:id="@+id/listActivities"
-        android:layout_width="match_parent"
-        android:layout_height="316dp"></ListView>
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/bars" />
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="90dp"
+            android:text="ConnectMe!"
+            android:textSize="24sp"
+            android:textColor="#6F9AD5"
+            android:textStyle="bold" />
 
-    <!-- Weather forecast -->
-    <TextView
-        android:id="@+id/textWeather"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Weather Forecast: Sunny"
-        android:textSize="13pt"
-        android:layout_below="@id/listActivities"
-        android:layout_marginTop="16dp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="My Friends"
+            android:textColor="#404763"
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:text="Home"
-            android:textSize="8dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="Next Activity"
+            android:textColor="#404763"
+            android:textSize="34dp"
+            android:textStyle="bold"
+            />
+        <LinearLayout
+            android:layout_height="80dp"
+            android:layout_width="400dp"
+            android:background="@drawable/bordered_rounded_background_home"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/volleyball"/>
 
-        <Button
-            android:layout_width="105dp"
-            android:layout_height="match_parent"
-            android:text="Upcoming Activities"
-            android:textSize="10dp"
-            android:layout_weight="1"
-            android:layout_margin="8dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Add activity"
-            android:textSize="10dp"
-            android:layout_weight="1"
-            android:layout_margin="8dp"
-            android:onClick="beginForm"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:text="Profile"
-            android:textSize="8dp" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="Upcoming Events"
+            android:textColor="#404763"
+            android:textStyle="bold"
+            android:textSize="34dp"
+            />
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="5dp"
+                android:layout_height="35dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.012"
+                android:background="@drawable/home"
+                 />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="2dp"
+                android:text=" "/>
+
+            <ImageButton
+                android:layout_width="5dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.015"
+                android:layout_margin="8dp"
+                android:background="@drawable/calendar"/>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="2dp"
+                android:text=" "/>
+            <ImageButton
+                android:layout_width="5dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.015"
+                android:layout_margin="8dp"
+                android:onClick="beginForm"
+                android:background="@drawable/more"/>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="2dp"
+                android:text=" "/>
+            <ImageButton
+                android:layout_width="5dp"
+                android:layout_height="35dp"
+                android:layout_margin="8dp"
+                android:layout_weight="0.015"
+                android:background="@drawable/history"/>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="2dp"
+                android:text=" "/>
+            <ImageButton
+                android:layout_width="5dp"
+                android:layout_height="35dp"
+                android:layout_margin="8dp"
+                android:paddingLeft="50dp"
+                android:layout_weight="0.012"
+                android:background="@drawable/img"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
