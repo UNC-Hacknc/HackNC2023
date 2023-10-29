@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,14 +22,22 @@ public class MainActivity extends AppCompatActivity {
         createNewUser();
         Log.i("firebaseUser", HandleDatabase.getInstance().getUser(currUserId));
     }
-  
+
+    public void updateActivity(String location, String activity){
+        LinearLayout activityLayout = findViewById(R.id.newActivityLayout);
+        TextView locationText = findViewById(R.id.locationText);
+        TextView activityText = findViewById(R.id.activityText);
+        locationText.setText(location);
+        activityText.setText(activity);
+        activityLayout.setVisibility(View.VISIBLE);
+    }
     private void createNewUser() {
         HandleDatabase handDb = HandleDatabase.getInstance();
         currUserId = handDb.createNewUser();
     }
 
     public void beginForm(View view) {
-        AddActivity dialogFragment = new AddActivity();
+        AddActivity dialogFragment = new AddActivity(this);
         dialogFragment.show(getSupportFragmentManager(), "UserFormDialog");
     }
 }

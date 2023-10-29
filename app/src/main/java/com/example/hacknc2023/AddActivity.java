@@ -11,10 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 
 public class AddActivity extends DialogFragment {
+    private MainActivity activity;
+    public AddActivity(MainActivity activity){
+        this.activity = activity;
+    }
 
     HandleDatabase myDb = HandleDatabase.getInstance();
     @NonNull
@@ -97,9 +102,9 @@ public class AddActivity extends DialogFragment {
                 String selectedItem = mealSportsSpinner.getSelectedItem().toString();
                 if (selectedItem.equals("Meal")) {
 
-                    myDb.findOrCreateActivities(MainActivity.currUserId, cuisineSpinner.getSelectedItem().toString());
+                    myDb.findOrCreateActivities(MainActivity.currUserId, cuisineSpinner.getSelectedItem().toString() + " cuisine", activity);
                 } else if (selectedItem.equals("Sports")){
-                    myDb.findOrCreateActivities(MainActivity.currUserId, sportSpinner.getSelectedItem().toString());
+                    myDb.findOrCreateActivities(MainActivity.currUserId, sportSpinner.getSelectedItem().toString(), activity);
                 }
             }
         });
