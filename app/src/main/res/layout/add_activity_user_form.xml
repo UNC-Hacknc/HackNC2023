@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingHorizontal="15dp"
     android:orientation="vertical">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,23 +33,29 @@
                 android:textStyle="normal" />
 
         </LinearLayout>
-
-        <TextView
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Time"
-            android:textColor="#000000"
-            android:textSize="8pt"
-            android:textStyle="bold" />
+            android:paddingLeft="10mm"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0.8mm"
+                android:text="Time"
+                android:textAlignment="gravity"
+                android:textColor="#000000"
+                android:textSize="8pt"
+                android:textStyle="bold" />
 
-        <Spinner
-            android:id="@+id/timeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Select Time"
-            android:background="@drawable/bordered_rounded_background"/>
+            <Spinner
+                android:id="@+id/timeSpinner"
+                android:layout_width="20mm"
+                android:layout_height="7mm"
+                android:layout_marginTop="16dp"
+                android:hint="Select Time"
+                android:background="@drawable/bordered_rounded_background"/>
+        </LinearLayout>
 
     </LinearLayout>
     <TextView
@@ -56,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="Select School"
+        android:text="School"
         android:textColor="#000000"
         android:textSize="8pt"
         android:textStyle="bold" />
@@ -64,9 +71,9 @@
     <Spinner
         android:id="@+id/schoolSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="7mm"
         android:layout_marginTop="16dp"
-        android:hint="Select School"
+        android:padding="12dp"
         android:background="@drawable/bordered_rounded_background"/>
 
     <TextView
@@ -74,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="Choose between a meal or playing sports!"
+        android:text="Type of Activity"
         android:textColor="#000000"
         android:textSize="8pt"
         android:textStyle="bold" />
@@ -82,7 +89,7 @@
     <Spinner
         android:id="@+id/mealSportsSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="7mm"
         android:layout_marginTop="16dp"
         android:padding="12dp"
         android:hint="Select Meal/Sport"
@@ -94,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="Select the cuisine you're interested in"
+        android:text="Food/Cuisine"
         android:textColor="#000000"
         android:textSize="8pt"
         android:textStyle="bold"
@@ -103,7 +110,7 @@
     <Spinner
         android:id="@+id/cuisineSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="7mm"
         android:layout_marginTop="16dp"
         android:padding="12dp"
         android:hint="Select Cuisine"
@@ -116,7 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="Select the sport you're interested in"
+        android:text="Sport"
         android:textColor="#000000"
         android:textSize="8pt"
         android:textStyle="bold"
@@ -125,7 +132,7 @@
     <Spinner
         android:id="@+id/sportSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="7mm"
         android:layout_marginTop="16dp"
         android:padding="12dp"
         android:hint="Select Sport"
@@ -137,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="State your preference for gender of the group"
+        android:text="Gender Preferences"
         android:textColor="#000000"
         android:textSize="8pt"
         android:textStyle="bold"></TextView>
@@ -145,7 +152,7 @@
     <Spinner
         android:id="@+id/genderSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="7mm"
         android:layout_marginTop="16dp"
         android:padding="12dp"
         android:hint="Select Gender"
