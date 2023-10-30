@@ -1,6 +1,8 @@
 # ConnectMe
 ConnectMe is an application that was developed as part of the HackNC 2023 hackathon, where students had 24h to ideate and submit a working product. Our team decided to work on a social mobile application to connect new students while helping them discover new places around campus.
+
 Team: Ong Shao Yong, Thomas Barry, Vignesh Karthikeyan
+
 Tech Stack: Java, Java XML, Firebase, Google Maps API, Android Studio, Figma
 
 ## Inspiration
